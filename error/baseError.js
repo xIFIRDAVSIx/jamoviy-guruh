@@ -2,6 +2,7 @@ module.exports = class BaseError extends Error {
     status
     errors
     constructor(status, message, errors) {
+        super(message)
         this.status = status
         this.errors = errors
     }
@@ -15,6 +16,6 @@ module.exports = class BaseError extends Error {
     }
 
     static notFound(message, errors = []) {
-        return new BaseError(401, message, errors)
+        return new BaseError(404, message, errors)
     }
 }

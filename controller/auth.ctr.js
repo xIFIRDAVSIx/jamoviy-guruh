@@ -2,9 +2,10 @@ const { v4 } = require("uuid")
 const { read_file, write_file } = require("../fs/data")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const BaseError = require("../error/baseError")
 
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
     try {
         const { username, email, password } = req.body
 
@@ -12,16 +13,12 @@ const register = async (req, res) => {
 
         const foundedEmail = fileData.find((user) => user.email === email)
         if (foundedEmail) {
-            return res.status(401).json({
-                message: "User already exists"
-            })
+            throw BaseError.UnAuthorized("Email already exists")
         }
 
         const foundedUsername = fileData.find((user) => user.username === username)
         if (foundedUsername) {
-            return res.status(401).json({
-                message: "User already exists"
-            })
+            throw BaseError.UnAuthorized("Username already exists")
         }
 
         const hashPassword = await bcrypt.hash(password, 10)
@@ -40,14 +37,12 @@ const register = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        next(error)
     }
 }
 
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     try {
         const { email, password } = req.body
 
@@ -56,9 +51,7 @@ const login = async (req, res) => {
         const foundedEmail = fileData.find((user) => user.email === email)
 
         if (!foundedEmail) {
-            return res.status(401).json({
-                message: "User not found"
-            })
+            throw BaseError.UnAuthorized("User already exists")
         }
 
         const decodePassword = await bcrypt.compare(password, foundedEmail.password)
@@ -78,9 +71,7 @@ const login = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(500).json({
-            message: error.message
-        })
+        next(error)
     }
 }
 
