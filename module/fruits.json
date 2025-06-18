@@ -1,0 +1,26 @@
+[
+    {
+        "id": "6df90723-52b4-43d6-b0cd-01f9b76e7900",
+        "title": "Apple",
+        "color": "Red",
+        "price": 2
+    },
+    {
+        "id": "416fb756-4385-4fd2-bdae-e0f6ff0f4402",
+        "title": "Apple",
+        "color": "Red",
+        "price": 2
+    },
+    {
+        "id": "f08bc564-b72b-419b-bdfc-b5400ac07c17",
+        "title": "Apple",
+        "color": "Red",
+        "price": 2
+    },
+    {
+        "id": "a1a4b8cb-78ab-4cac-8500-fcd7943a4646",
+        "title": "Apple 2",
+        "color": "Red",
+        "price": 2
+    }
+]
