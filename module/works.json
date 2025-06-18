@@ -1,0 +1,35 @@
+[
+    {
+        "id": "001c94b4-41a6-4db4-ab9a-2290ca10cc2c",
+        "title": "Frontend Developer",
+        "company": "TechVision",
+        "location": "Moscow",
+        "salary": "from 1900$",
+        "technologies": [
+            "React",
+            "JavaScript"
+        ]
+    },
+    {
+        "id": "14a4b071-2a79-4cee-ab57-7465870d7cac",
+        "title": "Backend Developer",
+        "company": "DataForge",
+        "location": "Remote",
+        "salary": "from 2000$",
+        "technologies": [
+            "Node.js",
+            "Backend"
+        ]
+    },
+    {
+        "id": "b6a3634d-11b7-440b-b6fe-3f2fb0f02446",
+        "title": "Backend Developer",
+        "company": "DataForge",
+        "location": "Remote",
+        "salary": "from 2000$",
+        "technologies": [
+            "Node.js",
+            "Backend"
+        ]
+    }
+]
